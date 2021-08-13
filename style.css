@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.navbar-custom {
+  background-color: #1e5f74;
+  opacity: 0.9;
+}
+
+.navbar-brand span {
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+}
+
+.jumbotron {
+  padding-top: 5rem;
+  background: url(img/blob-haikei.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  padding-bottom: 25rem;
+  overflow: hidden;
+}
+
+#tentang {
+  background: url(img/blob-haikei-1.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  padding-bottom: 30rem;
+  overflow: hidden;
+}
+
+#projek {
+  background: url(img/blob-haikei-2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 55rem;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  #projek img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+#sertifikat {
+  background: url(img/blob-haikei-3.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 40rem;
+  overflow: hidden;
+}
+
+#skill {
+  background: url(img/blob-haikei-4.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  padding-bottom: 35rem;
+  overflow: hidden;
+}
+
+#kontak {
+  background: url(img/blob-haikei-5.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  padding-bottom: 30rem;
+  overflow: hidden;
+}
+
+.footer-custom {
+  background-color: #1e5f74;
+}
+
+section {
+  background-color: #1d2d50;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #fff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #1e5f74;
+  border-radius: 12px;
+  -webkit-box-shadow: inset 0 0 6px #1e5f74;
+}
+
+.title {
+  font-family: "Rubik", sans-serif;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.card {
+  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12), 0.3s box-shadow, 0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+#tentang {
+  overflow: hidden;
+}
+
+h2 {
+  position: relative;
+  z-index: 2;
+}
+
+.dot-style {
+  position: relative;
+  z-index: 1;
+  top: 120px;
+  right: 50px;
+}
+
+.dot-style2 {
+  position: relative;
+  z-index: 1;
+  top: 120px;
+  right: 60px;
+}
+
+.dot-style3 {
+  position: relative;
+  z-index: 1;
+  top: 120px;
+  right: 50px;
+}
+
+.dot-style4 {
+  position: relative;
+  z-index: 1;
+  top: 120px;
+  right: 110px;
+}
+
+.dot-style5 {
+  position: relative;
+  z-index: 1;
+  top: 120px;
+  right: 40px;
+}
