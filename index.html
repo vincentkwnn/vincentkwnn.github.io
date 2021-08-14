@@ -10,7 +10,7 @@
   <!-- aos js -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <link rel="shortcut icon" href="img/Capture.jpg">
+  <link rel="shortcut icon" href="img/IMG_20210101_140431_648.jpg">
 
   <!-- MY CSS-->
   <link href="style.css" rel="stylesheet" />
@@ -261,34 +261,40 @@
             <svg class="about" width="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <path fill="#C18C9E" d="M15.2,11.9C3.5,29.2,-33.5,34.9,-40.3,20.6C-47,6.3,-23.5,-28.1,-5,-31C13.5,-33.9,27,-5.3,15.2,11.9Z" transform="translate(100 100)" />
             </svg>
-          </div>
+          </div> 
           <h2 class="text-white mb-4" style="font-weight: 600;">Contact</h2>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-md-8" data-aos="fade">
-          <form action="POST" data-netlify="true">
+          <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+            <strong>Thank you!</strong> Your messages has been sent to Vincent.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <form name="vk-contact-form"
+            </div>
             <hr>
             <div class="mb-3">
               <label for="name" class="form-label text-white">Name</label>
-              <input type="text" class="form-control" name="name" placeholder="Your name here" required>
+              <input type="text" class="form-control" name="nama" placeholder="Your name here" required>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label text-white">Email</label>
               <input type="email" class="form-control" name="email" placeholder="email@example.com" required>
             </div>
             <div class="mb-3">
-              <label for="message" class="form-label text-white">Message</label>
-              <textarea class="form-control" name="message" rows="3"></textarea>
+              <label for="message" class="form-label text-white">Pesan</label>
+              <textarea class="form-control" name="pesan" rows="3"></textarea>
             </div>
             <div data-netlify-recaptcha="true"></div>
-            <button type="submit" class="btn btn-success mt-3">Send <i class="bi bi-envelope"></i></button>
+            <button type="submit" class="btn btn-success sm-3 btn-send">Send <i class="bi bi-envelope"></i></button>
+
+          </button>
+          <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+          </button>
           </form>
-          <hr>
-          <center>
-            <h4 class="text-white">Or Email</h4>
-            <h4><a class="text-white" href="mailto:vincentkwan50@gmail.com"><i class="bi bi-envelope"></i> vincentkwan50@gmail.com</a></h4>
-          </center>
         </div>
       </div>
     </div>
@@ -315,6 +321,35 @@
     gsap.from('.navbar', { duration: 1.5, y: '-100%', opacity: 0, ease: 'bounce' });
     gsap.from('.jumbotron svg', { duration: 1, rotateY: 360, opacity: 0 });
     gsap.from('.jumbotron h1', { duration: 1, x: -100, opacity: 0 });
+  </script>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx9QjXsRersltVOOoFjrW5flDtAo6jEoqXj0PV6XGSesgm2lAr-8FGCZ6_myADNPxn0/exec'
+    const form = document.forms['vk-contact-form']
+    const btnSend = document.querySelector('.btn-send')
+    const btnLoading = document.querySelector('.btn-loading')
+    const myAlert = document.querySelector('.my-alert')
+
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      <!-- ketika tombol submit diklik -->
+      <!-- tampilkan tombol loading, hilangkan tombol kirim -->
+      btnLoading.classList.toggle('d-none')
+      btnSend.classList.toggle('d-none')
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          <!-- tampilkan tombol kirim, hilangkan tombol loading -->
+          btnLoading.classList.toggle('d-none')
+          btnSend.classList.toggle('d-none')
+          <!-- tampilkan alert -->
+          myAlert.classList.toggle('d-none')
+          <!-- reset form -->
+          form.reset()
+          console.log('Success!', response)
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
   </script>
 </body>
 
